@@ -1,0 +1,107 @@
+<!-- index.html -->
+<!-- 折叠目录插件作者: https://github.com/Wsine/blog -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <title>我的刷题日记</title>
+  <!-- 站标 -->
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+</head>
+<body>
+ 
+  <div id="app"></div>
+  <script src="https://unpkg.com/docsify-copy-code"></script>
+  <script>
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    window.$docsify = {
+      name: '首页',
+      repo: '#',
+      loadSidebar: true,
+      auto2top: true,
+      search: 'auto', // 默认值
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      search: {
+        placeholder: '请输入搜索关键词...'},
+      // markdown渲染
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "flow") {
+              (async () => {
+                await sleep(500);
+                var diagram = flowchart.parse(code);
+                diagram.drawSVG('flow');
+              })();
+              return '<div id="flow"></div>';
+            } else if (lang === "sequence") {
+              (async () => {
+                await sleep(500);
+                var diagram = Diagram.parse(code);
+                diagram.drawSVG('sequence', {theme: 'simple'});
+              })();
+              return '<div id="sequence"></div>';
+            } else if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render(lang, code) + "</div>"
+              );
+            } else if (lang === "c++") {
+              lang = "cpp";
+            }else if (lang === "python") {
+              lang = "python";
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+	  
+      copyCode: {
+    buttonText: '点击复制',
+    errorText:  '错误',
+    successText: '复制成功'
+  },
+   pagination: {
+    previousText: '上一章节',
+    nextText: '下一章节',
+    crossChapter: true,
+    crossChapterText: true,
+  },
+    }
+  </script>
+  
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  
+  <!-- CDN files for docsify-katex -->
+<script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+<!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+  <!-- docsify -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 语言高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cmake.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <!-- 流程图 -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/flowchart/1.12.0/flowchart.min.js"></script>
+  <!-- 时序图 -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <!-- 阿甘图 -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script type="text/javascript">mermaid.initialize({ startOnLoad: false });</script>
+</body>
+</html>
