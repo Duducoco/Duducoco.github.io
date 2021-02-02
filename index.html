@@ -55,7 +55,8 @@
               lang = "cpp";
             }else if (lang === "python") {
               lang = "python";
-            }
+            }else if (lang === "java") {
+              lang = "java";
             return this.origin.code.apply(this, arguments);
           }
         }
@@ -93,6 +94,8 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cmake.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-cpp.min.js"></script>
   <!-- 流程图 -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/flowchart/1.12.0/flowchart.min.js"></script>
