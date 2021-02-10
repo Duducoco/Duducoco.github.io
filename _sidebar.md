@@ -8,6 +8,7 @@
 * [LeetCode](/docs/LeetCode/README.md)
  - [10.正则表达式匹配](/docs/LeetCode/10、正则表达式匹配.md)
  - [978.湍流子数组](/docs/LeetCode/978、湍流子数组.md)
+ - [992.K个不同整数的子数组.md](/docs/LeetCode/992、K个不同整数的子数组.md)
 * [常用数据结构](/docs/常用数据结构/README.md)
  - [树状数组](/docs/常用数据结构/树状数组.md)
 * [发现](/docs/发现/README.md)
