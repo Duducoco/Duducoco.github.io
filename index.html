@@ -20,16 +20,20 @@
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     window.$docsify = {
       name: '我的刷题日记',
-	  coverpage: true,
+	    coverpage: true,
       repo: 'https://github.com/AlphaGogoo/AlphaGogoo.github.io',
       loadSidebar: true,
+      loadNavbar: true,
+      mergeNavbar: true,
+      // subMaxLevel: 2,
       auto2top: true,
       search: 'auto', // 默认值
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       search: {
-        placeholder: '请输入搜索关键词...'},
+        placeholder: '请输入搜索关键词...'
+      },
       // markdown渲染
       markdown: {
         renderer: {
